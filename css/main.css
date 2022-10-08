@@ -1,0 +1,671 @@
+@charset "utf-8";
+
+/*============================
+ *common
+============================*/
+:root {
+  --point_color: #98fb98;
+}
+
+html,
+body {
+  font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+  overflow-x: hidden;
+  cursor: url(../img/mouse_move.png) 10 10, auto;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  cursor: url(../img/mouse_active.png) 20 20, auto;
+}
+
+.clrfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.about_me .wrap .sub_title {
+  display: block;
+  margin-bottom: 25px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+section .wrap {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+section .wrap .title {
+  position: relative;
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--point_color);
+}
+
+section .wrap .title:after {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: -1;
+  font-size: 80px;
+  color: #fff;
+  -webkit-text-stroke: 1px #000;
+}
+
+
+/*============================
+ *header
+============================*/
+header {
+  width: 60px;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  z-index: 9999;
+  user-select: none;
+}
+
+header .logo {
+  position: absolute;
+  line-height: 60px;
+  font-size: 16px;
+}
+
+header .logo b {
+  color: var(--point_color);
+}
+
+header .gnb {
+  text-align: center;
+}
+
+header .gnb li {
+  display: inline-block;
+  line-height: 60px;
+  font-size: 16px;
+  color: #555;
+  cursor: url(../img/mouse_active.png) 20 20, auto;
+  position: relative;
+}
+
+header .gnb li.underline {
+  display: inline-block;
+  line-height: 55px;
+  color: #555;
+  position: relative;
+}
+
+/*============================
+work
+============================*/
+.work {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.work .wrap {
+  position: relative;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.work .title:after {
+  content: "WORK";
+}
+
+.work .navigation {
+  position: relative;
+}
+
+.work .navigation .button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 150px;
+}
+
+.work .navigation .button .buttonWrap {
+  position: relative;
+}
+
+.work .navigation .button .swiper-pagination {
+  position: inherit;
+  bottom: 0;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 0;
+}
+
+.work .navigation .button .swiper-pagination .swiper-pagination-current {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.work .navigation .button .swiper-pagination .swiper-pagination-total {
+  font-size: 18px;
+}
+
+.work .navigation .swiper-button-prev,
+.work .navigation .swiper-button-next {
+  top: 0;
+  display: inline-block;
+  margin-top: 0;
+  height: auto;
+  transition: 0.3s;
+  cursor: url(../img/mouse_active.png) 20 20, auto;
+}
+
+.work .navigation .button .swiper-button-prev {
+  left: 8px;
+  transform: scaleX(-1);
+}
+
+
+.work .navigation .button .swiper-button-next {
+  right: 8px;
+}
+
+.work .navigation .swiper-button-next::after,
+.work .navigation .swiper-button-prev::after {
+  display: none;
+}
+
+.work .swiper {
+  overflow: unset;
+}
+
+.work .swiper .swiper-wrapper a {
+  display: block;
+
+}
+
+.work .swiper .swiper-wrapper .swiper-slide {
+  margin-top: 50px;
+  position: relative;
+}
+
+.work .swiper .swiper-wrapper .swiper-slide .img_hover_wrap {
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 1px 1px 8px 0px rgb(0 0 0 / 10%);
+}
+
+.work .swiper .swiper-wrapper .swiper-slide img {
+  display: block;
+  width: 530px;
+  height: 300px;
+  position: relative;
+  opacity: 1;
+  -webkit-transition: .3s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
+
+.work .swiper .swiper-wrapper .swiper-slide .work_info {
+  padding-top: 40px;
+  padding-left: 20px;
+}
+
+.work .swiper .swiper-wrapper .swiper-slide .work_info .work_tit {
+  font-size: 30px;
+}
+
+.work .swiper .swiper-wrapper .swiper-slide .work_info .hashtag {
+  margin-top: 20px;
+}
+
+.work .swiper .swiper-wrapper .swiper-slide .work_info .hashtag li {
+  float: left;
+  margin-right: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+/*============================
+ *about_me
+============================*/
+.about_me {
+  padding: 120px 0;
+  background: #fff;
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+}
+
+.about_me.on {
+  bottom: 0;
+}
+
+.about_me .title:after {
+  content: "ABOUT ME";
+}
+
+/*============================
+  about_me---personal_info
+  ============================*/
+.about_me .wrap .personal_info {
+  margin-top: 90px;
+}
+
+.about_me .wrap .personal_info .personal_wrap {
+  display: block;
+  float: left;
+  width: 535px;
+  margin-bottom: 60px;
+}
+
+.about_me .wrap .personal_info .right {
+  float: right;
+}
+
+
+
+.about_me .wrap .personal_info .personal_wrap p {
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.about_me .wrap .personal_info .personal_wrap ul {
+  width: 1100px;
+  padding: 30px 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.about_me .wrap .personal_info .personal_wrap li {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.about_me .wrap .personal_info .personal_wrap li span {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+/*============================
+  about_me---skill
+  ============================*/
+.about_me .wrap .skill {
+  margin-bottom: 60px;
+}
+
+.about_me .wrap .skill ul {
+  width: 100%;
+}
+
+.about_me .wrap .skill .pie_chart {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transition: 0.3s;
+  margin-right: 72px;
+}
+
+.about_me .wrap .skill .pie_chart:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+}
+
+.about_me .wrap .skill .pie_chart .back,
+.about_me .wrap .skill .pie_chart .front {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  z-index: 1;
+  transition: 0.7s;
+  backface-visibility: hidden;
+}
+
+.about_me .wrap .skill .pie_chart .front {
+  transform: rotateY(0deg);
+}
+
+.about_me .wrap .skill .pie_chart .back {
+  background: #fff;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 50%;
+  transform: rotateY(180deg);
+}
+
+.about_me .wrap .skill .pie_chart:hover .front {
+  transform: rotateY(-180deg);
+}
+
+.about_me .wrap .skill .pie_chart:hover .back {
+  transform: rotateY(0deg);
+  background: #000;
+}
+
+/* CONTACT */
+.about_me .contact .contack_wrap {
+  display: flex;
+}
+
+.about_me .contact li {
+  width: 50%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.about_me .contact .kakao {
+  margin-right: 30px;
+}
+
+.about_me .contact a {
+  display: block;
+  background: #f9f9f9;
+  padding: 40px 0;
+  border-radius: 8px;
+}
+
+.about_me .contact img {
+  width: 50px;
+  height: 50px;
+}
+
+.about_me .contact p {
+  margin-top: 30px;
+  font-size: 15px;
+}
+
+/*=======================================
+피씨
+========================================= */
+@media (min-width : 601px) {
+
+  /*============================
+  header
+  ============================*/
+  header {
+    border-right: 1px solid #eee;
+    writing-mode: vertical-lr;
+  }
+
+  header .logo {
+    top: 20px;
+  }
+
+  header .gnb li {
+    margin: 20px 0px;
+  }
+
+  header .gnb li.underline {
+    margin: 20px 0px;
+    border-right: 4px solid var(--point_color);
+  }
+
+  /*============================
+  work
+  ============================*/
+  .work .navigation .button .swiper-button-prev:hover {
+    left: 0;
+  }
+
+  .work .navigation .button .swiper-button-next:hover {
+    right: 0;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide {
+    width: 530px;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide:nth-child(2n-1) {
+    margin-top: 110px;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide:hover img {
+    opacity: .4;
+    transform: scale(1.025);
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide img.mo_img {
+    display: none;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide .img_hover_wrap {
+    background: #000;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide .plus {
+    display: block;
+    width: 530px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    font-size: 0;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide .plus:before,
+  .work .swiper .swiper-wrapper .swiper-slide .plus:after {
+    content: "";
+    display: block;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide .plus:after {
+    width: 100px;
+    height: 2px;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide .plus:before {
+    width: 2px;
+    height: 100px;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide:hover .plus {
+    opacity: 1;
+    transform: rotate(360deg);
+    -webkit-transform: translateZ(0)
+  }
+
+  /*============================
+  about_me---skill
+  ============================*/
+  .about_me .wrap .skill .pie_chart:last-child {
+    margin-right: 0;
+  }
+}
+
+/*=======================================
+모바일
+========================================= */
+@media (max-width : 600px) {
+
+
+  /* common */
+  section .wrap {
+    width: 100%;
+    padding: 0 30px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  section .wrap .title {
+    font-size: 50px;
+  }
+
+  section .wrap .title:after {
+    font-size: 50px;
+  }
+
+  /*============================
+  header
+  ============================*/
+  header {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #eee;
+  }
+
+  header .logo {
+    top: 0;
+    left: 30px;
+  }
+
+  header .gnb {
+    text-align: right;
+    padding-right: 30px;
+  }
+
+  header .gnb .work_btn {
+    margin-right: 30px;
+  }
+
+  header .gnb li.underline {
+    border-bottom: 4px solid var(--point_color);
+  }
+
+  /*============================
+  work
+  ============================*/
+  .work .navigation .button {
+    width: 120px;
+  }
+
+
+  .work .navigation .button .swiper-pagination .swiper-pagination-current {
+    font-size: 18px;
+  }
+
+  .work .navigation .button .swiper-pagination .swiper-pagination-total {
+    font-size: 14px;
+  }
+
+  .work .navigation .swiper-button-prev img,
+  .work .navigation .swiper-button-next img {
+    width: 22px;
+  }
+
+  .work .navigation .button .swiper-button-prev {
+    left: -4px;
+  }
+
+  .work .navigation .button .swiper-button-next {
+    right: -4px;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide .img_hover_wrap {
+    width: 100%;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide img {
+    width: 100%;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide img.pc_img {
+    display: none;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide .img_hover_wrap span {
+    display: none;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide .work_info .work_tit {
+    font-size: 20px;
+  }
+
+  .work .swiper .swiper-wrapper .swiper-slide .work_info .hashtag li {
+    font-size: 12px;
+  }
+
+  /*============================
+  about_me---personal_info
+  ============================*/
+  .about_me .wrap .personal_info .personal_wrap {
+    width: 100%;
+  }
+
+  .about_me .wrap .personal_info .personal_wrap ul {
+    width: 100%;
+  }
+
+  /*============================
+  about_me---skill
+  ============================*/
+  .about_me .wrap .skill .pie_chart {
+    width: 100px;
+    height: 100px;
+    margin-right: 0;
+  }
+
+  .about_me .wrap .skill .pie_chart.html,
+  .about_me .wrap .skill .pie_chart.jq {
+    margin-right: 0;
+  }
+
+  .about_me .wrap .skill .pie_chart.psd,
+  .about_me .wrap .skill .pie_chart.ai,
+  .about_me .wrap .skill .pie_chart.html {
+    margin-bottom: 30px;
+  }
+
+  .about_me .wrap .skill .pie_chart:after {
+    width: 80px;
+    height: 80px;
+  }
+
+  .about_me .wrap .skill .pie_chart .back,
+  .about_me .wrap .skill .pie_chart .front {
+    width: 80px;
+    height: 80px;
+  }
+
+  .about_me .wrap .skill .pie_chart .back {
+    line-height: 80px;
+    font-size: 16px;
+  }
+
+  /* contact */
+  .about_me .contact img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .about_me .contact p {
+    margin-top: 20px;
+    font-size: 12px;
+  }
+
+}
