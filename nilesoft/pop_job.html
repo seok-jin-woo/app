@@ -1,0 +1,54 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NileSOFT</title>
+<link href="../../css/common.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	overflow: hidden; /* Hide scrollbars */
+}
+</style>
+<script language="JavaScript">
+<!-- 
+function setCookie( name, value, expiredays ) {
+  var todayDate = new Date(); 
+  todayDate.setDate( todayDate.getDate() + expiredays ); 
+  document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";" 
+} 
+
+
+function closeWin() { 
+  if ( document.frm.ddalchiform.checked ) 
+  setCookie( "Notice", "done" , 1); 
+  self.close(); 
+} 
+// -->
+</script>
+
+<script language="JavaScript">
+<!--
+function win_link(url_link) {
+  window.opener.location=url_link;
+  window.close();
+}
+--> 
+</script>
+
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td><a href="javascript:;" onClick="win_link('#');"><img src="http://www.nilesoft.co.kr/sub/notice/img/new/popup_20220704.jpg" width="310" height="356" /></a></td>
+    </tr>
+    <tr><form name="frm">
+        <td height="34" align="right" style="padding-right:10px; background-color:#000000;">
+        <font color="#dddddd">오늘하루 이창을 열지 않습니다.</font><input type="checkbox" name="ddalchiform" onClick="closeWin();" />        </td></form> 
+    </tr>
+</table>
+</body>
+</html>

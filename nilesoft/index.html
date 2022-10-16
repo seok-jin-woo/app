@@ -1,0 +1,824 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>나일소프트</title>
+<link href="common.css" rel="stylesheet" type="text/css" />
+<link href="navi.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="http://www.nilesoft.co.kr/NileSOFT.ico"/>
+
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="AC_RunActiveContent.js"></script>
+<script type="text/javascript" src="select_design.js"></script>
+
+
+
+<script language="JavaScript" type="Text/JavaScript">
+<!--
+		
+	var MheadlineMessage = new Array();
+    var MhlmIdx = 0;
+    var MhlmCount = 10;//Head Line Message �޼��� ����
+    var MhlsWidth = 470;//HeadLineScroller ��ũ�ѷ��� ����ũ��
+    var MhlsHeight = 24;//��ũ�ѷ��� ����
+    var MhlsBgcolor = "#fffffff";// ��ũ�ѷ��� ����
+    var MhlsBackground = "";// ��ũ�ѷ��� ����̹���
+    var MhlsSpeed = 2000;// �� �޼����� ������ �ð� (3000=3��)
+    var MhlsWaitingTime = 0;// ���ð�
+	
+        
+    if (MheadlineMessage.length>1)
+        MhlmIdx = 3;
+    else
+        MhlmIdx = 0;
+
+    function move1(whichlayer) {
+        tlayer=eval(whichlayer);
+
+        if (tlayer.top>0&&tlayer.top<=MhlmCount) {
+            tlayer.top=0;
+            setTimeout("move1(tlayer)",MhlsSpeed);
+            setTimeout("move2(document.main.document.second)",MhlsSpeed);
+            return;
+        }
+
+        if (tlayer.top>=tlayer.document.height*-1) {
+            tlayer.top-=MhlmCount;
+            setTimeout("move1(tlayer)",MhlsWaitingTime);
+        } else {
+            tlayer.top=MhlsHeight;
+            tlayer.document.write(MheadlineMessage[MhlmIdx]);
+            tlayer.document.close();
+
+            if (MhlmIdx == MheadlineMessage.length-1)
+                MhlmIdx=0;
+            else
+                MhlmIdx++;
+        }
+    }
+
+    function move2(whichlayer) {
+        tlayer2=eval(whichlayer);
+
+        if (tlayer2.top>0&&tlayer2.top<=MhlmCount) {
+            tlayer2.top=0;
+            setTimeout("move2(tlayer2)",MhlsSpeed);
+            setTimeout("move1(document.main.document.first)",MhlsSpeed);
+            return;
+        }
+
+        if (tlayer2.top>=tlayer2.document.height*-1) {
+            tlayer2.top-=MhlmCount;
+            setTimeout("move2(tlayer2)",MhlsWaitingTime);
+        } else {
+            tlayer2.top=MhlsHeight;
+            tlayer2.document.write(MheadlineMessage[MhlmIdx]);
+            tlayer2.document.close();
+
+            if (MhlmIdx == MheadlineMessage.length-1)
+                MhlmIdx=0;
+            else
+                MhlmIdx++;
+        }
+    }
+
+    function move3(whichdiv) {
+        tdiv=eval(whichdiv);
+	//alert(tdiv); //[object]
+
+        if (tdiv.style.pixelTop>0&&tdiv.style.pixelTop<=MhlmCount) {
+            tdiv.style.pixelTop=0;
+            setTimeout("move3(tdiv)",MhlsSpeed);
+            setTimeout("move4(second2)",MhlsSpeed);
+            return;
+        }
+
+        if (tdiv.style.pixelTop>=tdiv.offsetHeight*-1) {
+            tdiv.style.pixelTop-=MhlmCount;
+            setTimeout("move3(tdiv)",MhlsWaitingTime);
+        } else {
+            tdiv.style.pixelTop=MhlsHeight;
+            tdiv.innerHTML=MheadlineMessage[MhlmIdx];
+
+            if (MhlmIdx == MheadlineMessage.length-1)
+                MhlmIdx=0;
+            else
+                MhlmIdx++;
+        }
+    }
+
+	function move4(whichdiv) {
+        tdiv2=eval(whichdiv);
+
+        if (tdiv2.style.pixelTop>0&&tdiv2.style.pixelTop<=MhlmCount) {
+            tdiv2.style.pixelTop=0;
+            setTimeout("move4(tdiv2)",MhlsSpeed);
+            setTimeout("move3(first2)",MhlsSpeed);
+            return;
+        }
+
+        if (tdiv2.style.pixelTop>=tdiv2.offsetHeight*-1) {
+            tdiv2.style.pixelTop-=MhlmCount;
+            setTimeout("move4(second2)",MhlsWaitingTime);
+        } else {
+            tdiv2.style.pixelTop=MhlsHeight;
+            tdiv2.innerHTML=MheadlineMessage[MhlmIdx];
+
+            if (MhlmIdx == MheadlineMessage.length-1)
+                MhlmIdx=0;
+            else
+                MhlmIdx++;
+        }
+    }
+
+    function StartHeadLineScroll() {
+	    if (document.all) {
+            move3(first2);
+            second2.style.top=MhlsHeight;
+            second2.style.visibility='visible';
+        } else if (document.layers) {
+            document.main.visibility='show';
+            move1(document.main.document.first);
+            document.main.document.second.top=MhlsHeight+MhlmCount;
+            document.main.document.second.visibility='show';
+        }
+    }
+
+	/****************************************************************************************************/
+
+	    var Mtimer = {"cf":null, "pb":null, "etc":null};     var Midx = {"cf":0, "pb":0, "etc":0}; 
+	    function ShowWidget(Atype, Aidx) {
+        if ("cf" == Atype) {
+        	//tblWidgetcf[0].style.display = "none";
+        	//tblWidgetcf[1].style.display = "none";
+        	//tblWidgetcf[Aidx].style.display = "";
+    	} else if ("pb" == Atype) {
+    	    tblWidgetpb[0].style.display = "none";
+        	tblWidgetpb[1].style.display = "none";
+			tblWidgetpb[2].style.display = "none";
+			tblWidgetpb[3].style.display = "none";
+			tblWidgetpb[4].style.display = "none";
+			tblWidgetpb[5].style.display = "none";
+			tblWidgetpb[6].style.display = "none";
+        	tblWidgetpb[Aidx].style.display = "";
+    	} else {
+    	    ;
+    	}
+    }
+	
+	    function ChangeWidget(Atype) {
+        if ("cf" == Atype) {
+        	if( Midx.cf == 1 )
+        		Midx.cf = 0;
+        	else
+        		Midx.cf++;
+        	ShowWidget(Atype, Midx.cf);
+    	} else if ("pb" == Atype) {
+        	if( Midx.pb == 6 )
+        		Midx.pb = 0;
+        	else
+        		Midx.pb++;
+        	ShowWidget(Atype, Midx.pb);
+    	} else {
+        	if( Midx.etc == 1 )
+        		Midx.etc = 0;
+        	else
+        		Midx.etc++;
+        	ShowWidget(Atype, Midx.cf);
+    	}
+    }
+		function SetWidgetInterval(Atype) {
+        if ("cf" == Atype) {
+    	    Mtimer.cf = setInterval("ChangeWidget('" + Atype + "')",3000);
+    	} else if ("pb" == Atype) {
+    	    Mtimer.pb = setInterval("ChangeWidget('" + Atype + "')",3000);
+    	} else {
+    	    Mtimer.etc = setInterval("ChangeWidget('" + Atype + "')",3000);
+    	}
+    }
+
+	    function ClearWidgetInterval(Atype) {
+    	if ("cf" == Atype) {
+    	    clearInterval(Mtimer.cf);
+    	} else if ("pb" == Atype) {
+    	    clearInterval(Mtimer.pb);
+    	} else {
+    	    clearInterval(Mtimer.etc);
+    	}
+    }
+	    function ThisOnLoad() {
+        MM_preloadImages('menu_top_mini_01_over.gif','menu_top_mini_02_over.gif','menu_top_mini_03_over.gif');
+        StartHeadLineScroll();   //헤드라인 메시지 자동 시작 
+        SetWidgetInterval("cf");  //수상인증내역 자동 시작 
+		SetWidgetInterval("pb");  //나일소프트최근제품 자동 시작 
+    }
+//-->
+</script>
+
+
+<script language="JavaScript">
+function getCookie( name ) {
+  var nameOfCookie = name + "=";
+  var x = 0;
+  while ( x <= document.cookie.length ) {
+    var y = (x+nameOfCookie.length);
+    if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+      if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+      endOfCookie = document.cookie.length;
+      return unescape( document.cookie.substring( y, endOfCookie ) );
+    }
+    x = document.cookie.indexOf( " ", x ) + 1;
+    if ( x == 0 ) break;
+  }
+  return "";
+}
+
+
+if ( getCookie("Notice") !="done" ) {
+  noticeWindow = window.open('pop_job.html','notice','left=50,top=50,width=310,height=390');
+  noticeWindow.opener = self;
+}
+</script>
+
+
+
+</head>
+<body onLoad="ThisOnLoad();">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td height="489" align="center" valign="top" heigh="100%"><table width="970" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="right"><table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('top_mini_01','','menu_top_mini_01_over.gif',1)"><img src="menu_top_mini_01.gif" name="top_mini_01" width="61" height="15" border="0" id="top_mini_01" /></a></td>
+                                <td  width="80" align="center"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('top_mini_02',''menu_top_mini_02_over.gif',1)"><img src="menu_top_mini_02.gif" name="top_mini_02" width="56" height="15" border="0" id="top_mini_02" /></a></td>
+                                <td><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('top_mini_03','','menu_top_mini_03_over.gif',1)"><img src="menu_top_mini_03.gif" name="top_mini_03" width="57" height="15" border="0" id="top_mini_03" /></a></td>
+                            </tr>
+                        </table></td>
+                    </tr>
+                    <tr>
+                        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="504" height="40" valign="middle"><a href="#"><img src="ci_img_01.gif" width="504" height="27" /></a></td>
+                                <td align="left" valign="bottom"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td height="24" align="right" valign="bottom">
+<script language="JavaScript">
+<!--
+    if (document.all){
+        document.writeln('<span id="main2" style="position:relative;width:'+MhlsWidth+';height:'+MhlsHeight+';overflow:hiden;background-color:'+MhlsBgcolor+' ;background-image:url('+MhlsBackground+')">')
+        document.writeln('<div style="position:absolute;width:'+MhlsWidth+';height:'+MhlsHeight+';clip:rect(0 '+MhlsWidth+' '+MhlsHeight+' 0);left:0;top:0">')
+        document.writeln('<div id="first2" style="position:absolute;width:'+MhlsWidth+';left:0;top:1;">')
+        document.write(MheadlineMessage[2])
+        document.writeln('</div>')
+
+        document.writeln('<div id="second2" style="position:absolute;width:'+MhlsWidth+';left:0;top:0;visibility:hidden">')
+        document.write(MheadlineMessage[3])
+        document.writeln('</div>')
+        document.writeln('</div>')
+        document.writeln('</span>')
+    }
+//-->
+</script>
+								        </td>
+                                        <td width="50" align="center">&nbsp;</td>
+                                    </tr>
+                                </table></td>
+                            </tr>
+                        </table></td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#1e498d"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-left:40px">
+                    <tr>
+                        <td width="740" align="center">
+						
+                        <!----------top menu---------->
+                        
+                        <div class="navbar">
+   <div class="dropdown">
+    <button class="dropbtn">회사소개</button>
+    <div class="dropdown-content">
+      <a href="#">CEO인사말</a>
+      <a href="#">사업소개</a>
+      <a href="#">회사연혁</a>
+      <a href="#">수상실적</a>
+      <a href="#">기업IR</a>
+      <a href="#">오시는길</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">제품소개</button>
+    <div class="dropdown-content">
+      <a href="#">LogCops Appliance</a>
+      <a href="#">Secuguard SSE</a>
+      <a href="#">Secuguard NSE</a>
+      <a href="#">Secuguard UVM</a>
+      <a href="#">Secuguard WSE</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">보안취약점</button>
+    <div class="dropdown-content">
+      <a href="#">보안취약점이란?</a>
+      <a href="#">보안취약점도구 선택기준</a>
+      <a href="#">활용사례</a>
+    </div>
+  </div>
+   <div class="dropdown">
+    <button class="dropbtn">고객지원</button>
+    <div class="dropdown-content">
+	  <a href="#">공지사항</a> 
+      <a href="#">고객지원</a>
+      <a href="#">FAQ</a>
+      <a href="#">고객문의</a>
+    </div>
+  </div>
+</div>
+                        
+                        <!--------top menu------------>                       
+                      
+                        </td>
+                        <td align="center" width="20" background-color="#1e498d"></td>
+                        <td align="left" background-color="#1e498d" style="padding-right:8px">
+
+                        <select id="leftSelectBoxGlobal" style="width:200px;height:22px;display:none;" onChange="goLeftSelectBoxMenu(this.value)">
+						<option value="">+ 나일제품 바로가기</option>
+						<!--<option value="#">-----------------------------------------------</option>
+						
+						<option value="sub/products/LogCops_Enterprise.html">LogCOPS Enterprise</option> -->
+						<option value="#">LogCops Appliance</option>
+                        <option value="#">Secuguard SSE</option>
+						<option value="#">Secuguard NSE</option>
+						<option value="#">Secuguard UVM</option>
+						<option value="#">Secuguard WSE</option>
+                       <!-- <option value="#">-----------------------------------------------</option>
+                        <option value="sub/products/Service_01.html">정보보호서비스소개</option>
+                        <option value="sub/products/Service_02.html">Secuguard VAS</option>
+                        <option value="sub/products/Service_03.html">Secuguard VRS</option>
+                        <option value="sub/products/Service_04.html">Secuguard PTS</option>
+                        <option value="sub/products/Service_05.html">Secuguard SES</option>-->
+						</select>
+<script type="text/javascript">
+    makeSelectBoxGlobal("leftSelectBoxGlobal", "selectBoxSelectedAreaGlobal", "#666666", "select_btn.gif", "selectBoxOptionGlobal", "selectBoxSelectedAreaFocusGlobal", "selectBoxOptionOverGlobal");
+</script>
+                        </td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+            <tr>
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td valign="top">
+                       
+                            
+                                 <div class="slideshow-container">
+
+<div class="mySlides fade">
+  <a href="#"><img src="img1.png" style="width:100%"></a>
+</div>
+
+<div class="mySlides fade">
+  <a href="#"><img src="img2.png" style="width:100%"></a>
+</div>
+
+<div class="mySlides fade">
+  <a href="#"><img src="img3.png" style="width:100%"></a>
+</div>
+
+<div class="mySlides fade">
+  <a href="#"><img src="img4.png" style="width:100%"></a>
+</div>
+
+<a class="prev" onClick="plusSlides(-1)"><img src="leftbtn01.png" alt="" /></a>
+<a class="next" onClick="plusSlides(1)"><img src="rightbtn01.png" alt="" /></a>
+
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+                            
+                            
+                            
+                            </td>
+                       
+                    </tr>
+                </table>
+              </td>
+            </tr>
+        </table></td>
+    </tr>
+    <tr>
+        <td align="center"><table width="970" border="0" cellspacing="0" cellpadding="0" bgcolor="#f0f0f0">
+            <tr>
+                <td height="120" align="center"><a href="#"><img src="img01.gif" border="0" /></a></td>
+                <td align="center"><img src="img03.gif" alt="" border="0" /></td>
+                <td align="center"><a href="#"><img src="img02.gif" border="0"></a></td>
+            </tr>
+        </table></td>
+  </tr>
+    <tr>
+        <td align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align="center" valign="top"><table width="970" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="20" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><table width="970" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="310" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">                                    
+					<tr>
+                                            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td height="40"  align="left" valign="top"><strong>공지사항</strong></td>
+                                                        <td width="50" valign="top"><a href="#"><img src="btn_more_01.gif" width="40" height="13" border="0" /></a></td>
+                                                    </tr>
+                                            </table></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+												<table width="100%" border="0" cellspacing="0" cellpadding="0">
+													<tr><td height=23><a href='#' >[보도자료] 나일소프트, SRT 운영사 SR과  '..</a></td></tr><tr><td height=23><a href='#' >[2022년 하반기] 각 부문 신입/경력 채용..</a></td></tr><tr><td height=23><a href='#' >[2020년 상반기] 각 부문 신입/경력 채용..</a></td></tr><tr><td height=23><a href='#' >나일소프트, K-사이버 시큐리티 챌린지 2019 우..</a></td></tr><tr><td height=23><a href='#' >[2019년 하반기] 각 부문 신입/경력 채용..</a></td></tr>												</table>											</td>
+                                        </tr>
+                                </table></td>
+                                <td width="10" align="left" valign="top"></td>
+                                <td width="308" valign="top">
+                                <div id="product_banner">
+                                <!---- LogCOPS Enterprise banner table ---->
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" id="tblWidgetpb"  onMouseOver="ClearWidgetInterval('pb');" onMouseOut="SetWidgetInterval('pb');">
+                               		 	<tr>
+                                			<td align="center"><table border="0" cellspacing="0" cellpadding="0">
+                                                <tr height="28">
+                                                    <td width="44" valign="top"><img src="btn_product_banner_on.gif"  width="40" height="6" name="pb_01" onmouseover = "ShowWidget('pb', 0);" style="cursor:pointer;" /></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_02" onmouseover = "ShowWidget('pb', 1);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_03" onmouseover = "ShowWidget('pb', 2);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_04" onmouseover = "ShowWidget('pb', 3);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_05" onmouseover = "ShowWidget('pb', 4);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_06" onmouseover = "ShowWidget('pb', 5);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_07" onmouseover = "ShowWidget('pb', 6);" style="cursor:pointer;" / ></td>
+                                                </tr>
+                                            </table></td>
+                                		</tr>
+                               	      <tr>
+                                			<td height="24" valign="top"><strong><a href="sub/products/LogCops_Enterprise.html"><span class="main_product_banner_03">LogCOPS Enterprise</span></a></strong></td>
+                                		</tr>
+                                 	    <tr>
+                                 	        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="110" align="center" valign="top" style="padding-top:20px"><a href="#"><img src="img_product_00.gif" width="71" height="77"></a></td>
+                                                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td height="10" valign="top"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="5" class="main_product_banner_02">
+                                                            ENTERPRISE LOG ANALYSIS AND MANAGEMENT SYSTEM                                                                <!--High Volume and Real TIme Log Analysis and Management System for Full Log Life Cycle--></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="8"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" class="main_product_banner_01"><a href="#">로그생명주기 전 과정을 지원하는 대용량 실시간 통합로그분석 및 관리시스템</a></td>
+                                                        </tr>
+                                                    </table></td>
+                                                </tr>
+                                            </table></td>
+                             	        </tr>
+                               	  </table>
+                                    <!--- LogCops Appliance banner table --->
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="tblWidgetpb"  onMouseOver="ClearWidgetInterval('pb');" onMouseOut="SetWidgetInterval('pb');" style="display:none;">
+                               		 	<tr>
+                                			<td align="center"><table border="0" cellspacing="0" cellpadding="0">
+                                                <tr height="28">
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif"  width="40" height="6" name="pb_01" onmouseover = "ShowWidget('pb', 0);" style="cursor:pointer;" /></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_on.gif" width="40" height="6" name="pb_02" onmouseover = "ShowWidget('pb', 1);" style="cursor:hand;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_03" onmouseover = "ShowWidget('pb', 2);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_04" onmouseover = "ShowWidget('pb', 3);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_05" onmouseover = "ShowWidget('pb', 4);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_06" onmouseover = "ShowWidget('pb', 5);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_07" onmouseover = "ShowWidget('pb', 6);" style="cursor:pointer;" / ></td>
+                                                </tr>
+                                            </table></td>
+                                		</tr>
+                                 	    <tr>
+                                			<td height="24" valign="top"><strong><a href="#"><span class="main_product_banner_03">LogCOPS Appliance</span></a></strong></td>
+                                		</tr>
+                                 	    <tr>
+                                 	        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="110" valign="top" style="padding-top:30px"><a href="sub/products/LogCops_Appliance.html"><img src="img_product_01.gif" width="99" height="59"></a></td>
+                                                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td height="10" valign="top"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="5" class="main_product_banner_02"> HIGH VOLUME AND REALTIME LOG ANALYSIS AND MANAGEMENT SYSTEM FOR FULL LOG LIFE CYCLE
+                                                                <!--High Volume and Real TIme Log Analysis and Management System for Full Log Life Cycle--></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="8"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" class="main_product_banner_01"><a href="sub/products/LogCops_Appliance.html">로그생명주기 전 과정을 지원하는 대용량 실시간 통합로그분석 및 관리시스템</a></td>
+                                                        </tr>
+                                                    </table></td>
+                                                </tr>
+                                            </table></td>
+                             	        </tr>
+                                	</table>
+                                    <!--- secuguard SSE banner table --->
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="tblWidgetpb"  onMouseOver="ClearWidgetInterval('pb');" onMouseOut="SetWidgetInterval('pb');" style="display:none;">
+                               		 	<tr>
+                                			<td align="center"><table border="0" cellspacing="0" cellpadding="0">
+                                                <tr height="28">
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif"  width="40" height="6" name="pb_01" onmouseover = "ShowWidget('pb', 0);" style="cursor:pointer;" /></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_02" onmouseover = "ShowWidget('pb', 1);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_on.gif" width="40" height="6" name="pb_03" onmouseover = "ShowWidget('pb', 2);" style="cursor:hand;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_04" onmouseover = "ShowWidget('pb', 3);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_05" onmouseover = "ShowWidget('pb', 4);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_06" onmouseover = "ShowWidget('pb', 5);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_productbtn_product_banner_off.gif" width="40" height="6" name="pb_07" onmouseover = "ShowWidget('pb', 6);" style="cursor:pointer;" / ></td>
+                                                </tr>
+                                            </table></td>
+                                		</tr>
+                                 	    <tr>
+                                			<td height="24" valign="top"><strong><a href="#"><span class="main_product_banner_03">Secuguard SSE</span></a></strong></td>
+                                		</tr>
+                                 	    <tr>
+                                 	        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="110" align="center" style="padding-top:20px"><a href="sub/products/Secuguard_SSE"><img src="img_product_02.gif" width="73" height="79"></a></td>
+                                                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td height="10" valign="top"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="5" class="main_product_banner_02">
+                                                            HOST-BASED VULNERABILITY ASSESSMENT TOOL                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="8"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" class="main_product_banner_01"><a href="sub/products/Secuguard_SSE.html">순수국내기술로 개발된 호스트 기반의<br />
+                                                                시스템 취약점 점검도구</a></td>
+                                                        </tr>
+                                                    </table></td>
+                                                </tr>
+                                            </table></td>
+                             	        </tr>
+                                	</table>
+                                    <!--- secuguard NSE banner table --->
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="tblWidgetpb"  onMouseOver="ClearWidgetInterval('pb');" onMouseOut="SetWidgetInterval('pb');" style="display:none;">
+                               		 	<tr>
+                                			<td align="center"><table border="0" cellspacing="0" cellpadding="0">
+                                                <tr height="28">
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif"  width="40" height="6" name="pb_01" onmouseover = "ShowWidget('pb', 0);" style="cursor:pointer;" /></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_02" onmouseover = "ShowWidget('pb', 1);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_03" onmouseover = "ShowWidget('pb', 2);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_on.gif" width="40" height="6" name="pb_04" onmouseover = "ShowWidget('pb', 3);" style="cursor:hand;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_05" onmouseover = "ShowWidget('pb', 4);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_06" onmouseover = "ShowWidget('pb', 5);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_07" onmouseover = "ShowWidget('pb', 6);" style="cursor:pointer;" / ></td>
+                                                </tr>
+                                            </table></td>
+                                		</tr>
+                                 	    <tr>
+                                			<td height="24" valign="top"><strong><a href="#"><span class="main_product_banner_03">Secuguard NSE</span></a></strong></td>
+                                		</tr>
+                                 	    <tr>
+                                 	        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="110" align="center" style="padding-top:20px"><a href="#"><img src="img_product_03.gif" width="70" height="76"></a></td>
+                                                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td height="10" valign="top"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="5" class="main_product_banner_02">
+                                                            NETWORK-BASED VULNERABILITY ASSESSMENT TOOL                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="8"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" class="main_product_banner_01"><a href="#">순수국내기술로 개발된 네트워크 기반의 시스템 취약점 점검도구</a></td>
+                                                        </tr>
+                                                    </table></td>
+                                                </tr>
+                                            </table></td>
+                             	        </tr>
+                                	</table>
+                                    <!--- secuguard UVM banner table --->
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="tblWidgetpb"  onMouseOver="ClearWidgetInterval('pb');" onMouseOut="SetWidgetInterval('pb');" style="display:none;">
+                               		 	<tr>
+                                			<td align="center"><table border="0" cellspacing="0" cellpadding="0">
+                                                <tr height="28">
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif"  width="40" height="6" name="pb_01" onmouseover = "ShowWidget('pb', 0);" style="cursor:pointer;" /></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_02" onmouseover = "ShowWidget('pb', 1);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_03" onmouseover = "ShowWidget('pb', 2);" style="cursor:pointer" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_04" onmouseover = "ShowWidget('pb', 3);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_on.gif"  width="40" height="6" name="pb_05" onmouseover = "ShowWidget('pb', 4);" style="cursor:hand;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_06" onmouseover = "ShowWidget('pb', 5);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_07" onmouseover = "ShowWidget('pb', 6);" style="cursor:pointer;" / ></td>
+                                                </tr>
+                                            </table></td>
+                                		</tr>
+                                 	    <tr>
+                                			<td height="24" valign="top"><strong><a href="#"><span class="main_product_banner_03">Secuguard UVM</span></a></strong></td>
+                                		</tr>
+                                 	    <tr>
+                                 	        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="110" valign="top" align="center" style="padding-top:20px"><a href="#"><img src="img_product_04.gif" width="69" height="76"></a></td>
+                                                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td height="10" valign="top"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="5" class="main_product_banner_02">
+                                                            UNIFIED VULNERABILITY MANAGEMENT</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="8"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" class="main_product_banner_01"><a href="#">취약점 점검도구와 연계하여 체계적인 취약점 분석업추 체계를 구축할 수 있는 통합보안취약점 점검스캐너</a></td>
+                                                        </tr>
+                                                    </table></td>
+                                                </tr>
+                                            </table></td>
+                             	        </tr>
+                                	</table>
+                                    <!--- Secuguard WSE banner table --->
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="tblWidgetpb"  onMouseOver="ClearWidgetInterval('pb');" onMouseOut="SetWidgetInterval('pb');" style="display:none;">
+                               		 	<tr>
+                                			<td align="center"><table border="0" cellspacing="0" cellpadding="0">
+                                                <tr height="28">
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif"  width="40" height="6" name="pb_01" onmouseover = "ShowWidget('pb', 0);" style="cursor:pointer;" /></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_02" onmouseover = "ShowWidget('pb', 1);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_03" onmouseover = "ShowWidget('pb', 2);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_04" onmouseover = "ShowWidget('pb', 3);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_05" onmouseover = "ShowWidget('pb', 4);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_on.gif" width="40" height="6" name="pb_06" onmouseover = "ShowWidget('pb', 5);" style="cursor:hand;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_07" onmouseover = "ShowWidget('pb', 6);" style="cursor:pointer;" / ></td>
+                                                </tr>
+                                            </table></td>
+                                		</tr>
+                                 	    <tr>
+                                			<td height="24" valign="top"><strong><a href="#"><span class="main_product_banner_03">Secuguard WSE webscan</span></a></strong></td>
+                                		</tr>
+                                 	    <tr>
+                                 	        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="110" align="center" style="padding-top:20px"><a href="#"><img src="img_product_05.gif" width="71" height="77"></a></td>
+                                                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td height="10" valign="top"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="5" class="main_product_banner_02">WEB APPLICATION VULNERABILITY SCANER</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="8"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" class="main_product_banner_01"><a href="#">웹서비스 기반의 웹 어플리케이션 취약점 점검도구</a></td>
+                                                        </tr>
+                                                    </table></td>
+                                                </tr>
+                                            </table> </td>
+                             	        </tr>
+                                	</table>
+                                    <!--- security serivce table --->
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="tblWidgetpb"  onMouseOver="ClearWidgetInterval('pb');" onMouseOut="SetWidgetInterval('pb');" style="display:none;">
+                               		 	<tr>
+                                			<td align="center"><table border="0" cellspacing="0" cellpadding="0">
+                                                <tr height="28">
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif"  width="40" height="6" name="pb_01" onmouseover = "ShowWidget('pb', 0);" style="cursor:pointer;" /></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_02" onmouseover = "ShowWidget('pb', 1);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_03" onmouseover = "ShowWidget('pb', 2);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_04" onmouseover = "ShowWidget('pb', 3);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_05" onmouseover = "ShowWidget('pb', 4);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_off.gif" width="40" height="6" name="pb_06" onmouseover = "ShowWidget('pb', 5);" style="cursor:pointer;" / ></td>
+                                                    <td width="44" valign="top"><img src="btn_product_banner_on.gif" width="40" height="6" name="pb_07" onmouseover = "ShowWidget('pb', 6);" style="cursor:hand;" / ></td>
+                                                </tr>
+                                            </table></td>
+                                		</tr>
+                                 	    <tr>
+                                			<td height="24" valign="top"><strong><a href="#"><span class="main_product_banner_03">Security Service</span></a></strong></td>
+                                		</tr>
+                                 	    <tr>
+                                 	        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="110" align="center" style="padding-top:30px"><a href="#"><img src="img_product_07.gif"></a></td>
+                                                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td height="10" valign="top"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="5" class="main_product_banner_02"  style="padding-top:10px">NILESOFT SECURITY SERVICE</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="8"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top" class="main_product_banner_01"><a href="#">나일소프트만의 효과적이고 체계적인<br />정보보호 서비스를 제공합니다.</a></td>
+                                                        </tr>
+                                                    </table></td>
+                                                </tr>
+                                            </table></td>
+                             	        </tr>
+                                    </table>
+                                </div></td>
+                                <td align="right" valign="top"><table width="326" height="166" border="0" cellspacing="0" cellpadding="0" background="main_download_bg.gif">
+                                  <tr>
+                                    <td height="54">&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td align="center"><table width="276" height="91" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td><a href="#"><img src="m_download_sse.gif" alt="" width="134" height="27"></a></td>
+                                        <td align="right"><a href="#"><img src="m_download_nse.gif" alt="" width="134" height="27"></a></td>
+                                      </tr>
+                                      <tr>
+                                        <td><a href="#"><img src="m_download_uvm.gif" alt="" width="134" height="27"></a></td>
+                                        <td align="right"><a href="#><img src="m_download_wse.gif" alt="" width="134" height="27"></a></td>
+                                      </tr>
+                                      <tr>
+                                        <td><a href="#"><img src="m_download_logcops.gif" alt="" width="134" height="27"></a></td>
+                                        <td align="right"><!--img src="img/m_download_com.gif" alt="" width="134" height="27"--></td>
+                                      </tr>
+                                    </table></td>
+                                  </tr>
+                                </table></td>
+                            </tr>
+                        </table></td>
+                    </tr>
+                    <tr>
+                        <td height="20" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td height="1" colspan="2" align="center" bgcolor="e1e1e1"></td>
+                    </tr>
+                    <tr>
+                        <td width="759" height="65" align="left"><img src="bottom_company_info.gif" align="absmiddle" />서울특별시 구로구 디지털로32길 30, 코오롱디지털타워빌란트1차 1004호 Tel 02)783-0961, Fax 02)783-0963<!--Copyright (c)2016. NileSOFT. Ltd, All Right Reserved Information Security Popularization System, Security and NileSOFT--></td>
+                        <td width="211" align="right"><a href="#"><img src="img04.gif" alt="" border="0" /></a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center" bgcolor="484848"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td align="center"><table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="81" align="center"><a href="#"><img src="menu_bottom_06.gif" width="39" height="25" /></a></td>
+                                        <td width="120" align="center"><a href="#"><img src="img_product_08.gif" width="70" height="25" /></a></td>
+                                        <td width="80" align="center"><a href="#"><img src="menu_bottom_08.gif" width="39" height="25" /></a></td>
+                                        <td width="100" align="center"><a href="#"><img src="menu_bottom_07.gif" width="60" height="25" /></a></td>
+                                        <td width="90" align="center"><a href="tel:01063888391"><img src="menu_bottom_09.gif" width="50" height="25" /></a></td>
+                                    </tr>
+                                </table></td>
+                                </tr>
+                        </table></td>
+                    </tr>
+                </table></td>
+            </tr>
+
+            <tr>
+                <td align="center">&nbsp;</td>
+            </tr>
+        </table></td>
+    </tr>
+</table>
+</body>
+</html>
