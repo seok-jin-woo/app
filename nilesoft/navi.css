@@ -31,11 +31,11 @@
   background-color: inherit;
   font-family: inherit;
   margin: 0;
-  background-color: #1e498d;
+  background-color: #FFBB00;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #091e66;  
+  background-color: #EDA900;  
 }
 
 .dropdown-content {
