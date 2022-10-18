@@ -36,7 +36,7 @@ input,form,TEXTAREA ,option,SELECT {font-size: 12pt; line-height: 18pt;color: #5
 A:active	{font-family:"Arial", "Helvetica"; color:#FF6633; text-decoration:none; font-size:12px;}
 A:visited	{font-family:"Arial", "Helvetica"; color:#0000FF; text-decoration:none; font-size:12px;}
 A:link		{font-family:"Arial", "Helvetica"; color:#000000; text-decoration:none; font-size:12px;}
-A:hover		{font-family:"Arial", "Helvetica"; color:#205392; text-decoration:none; font-size:12px; font-weight: 500;}
+A:hover		{font-family:"Arial", "Helvetica"; color:#FFBB00; text-decoration:none; font-size:12px; font-weight: 500;}
 
 a {selector-dummy:expression(this.hideFocus=true);}
 .authentication {font-family:"Arial", "Helvetica"; font-size:12px; color:#666666;}
@@ -44,12 +44,12 @@ a {selector-dummy:expression(this.hideFocus=true);}
 A:active	{font-family:"Arial", "Helvetica"; color:#595858; text-decoration:none; font-size:12px;}
 A:visited	{font-family:"Arial", "Helvetica"; color:#595858; text-decoration:none; font-size:12px;}
 A:link		{font-family:"Arial", "Helvetica"; color:#595858; text-decoration:none; font-size:12px;}
-A:hover		{font-family:"Arial", "Helvetica"; color:#205392; text-decoration:none; font-size:12px; font-weight: 500;}
+A:hover		{font-family:"Arial", "Helvetica"; color:#FFBB00; text-decoration:none; font-size:12px; font-weight: 500;}
 
 A:active.b {font-family:"Arial", "Helvetica"; color:#317971; text-decoration:none; font-size:12px;}
 A:visited.b	{font-family:"Arial", "Helvetica"; color:#031DBF; text-decoration:none; font-size:12px;}
 A:link.b	{font-family:"Arial", "Helvetica"; color:#031DBF; text-decoration:none; font-size:12px;}
-A:hover.b	{font-family:"Arial", "Helvetica"; color:#205392; text-decoration:none; font-size:12px; font-weight: 500;}
+A:hover.b	{font-family:"Arial", "Helvetica"; color:#FFBB00; text-decoration:none; font-size:12px; font-weight: 500;}
 
 
 tr		{font-family:"Arial", "Helvetica"; FONT-SIZE: 12px;color:#666666; line-height: 16pt;}
