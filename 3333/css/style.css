@@ -18,7 +18,7 @@ li {list-style: none;}
 #aside .nav li a:hover {text-decoration: underline;}
 #aside .nav li.active a {color: blueviolet;}
 #aside .nav li ul.submenu {display: none; width: 150px; position: absolute; right: -140px; top: 0;}
-#aside .nav li ul.submenu li { }
+/* #aside .nav li ul.submenu li { } */
 #aside .nav li ul.submenu li a {display: block; font-size: 20px; color: #333; padding: 10px;
 border-bottom: 1px solid #ccc;}
 #aside .nav li ul.submenu li a:hover {text-decoration: none;}
